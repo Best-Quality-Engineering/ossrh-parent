@@ -104,6 +104,9 @@
                     <version>${maven.jar.version}</version>
                     <executions>
                         <execution>
+                            <configuration>
+                                <skipIfEmpty>true</skipIfEmpty>
+                            </configuration>
                             <goals>
                                 <goal>test-jar</goal>
                             </goals>
