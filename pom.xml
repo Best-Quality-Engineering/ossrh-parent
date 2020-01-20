@@ -4,7 +4,7 @@
 
     <groupId>io.bestquality</groupId>
     <artifactId>ossrh-parent</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.4</version>
     <name>OSSRH Parent</name>
     <description>Maven Central Parent</description>
     <packaging>pom</packaging>

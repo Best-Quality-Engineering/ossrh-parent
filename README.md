@@ -9,6 +9,6 @@ An OSSRH parent POM file for deployment to Maven Central.
 <parent>
   <groupId>io.bestquality</groupId>
   <artifactId>ossrh-parent</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
 </parent>
 ```
