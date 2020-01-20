@@ -4,7 +4,7 @@
 
     <groupId>io.bestquality</groupId>
     <artifactId>ossrh-parent</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>OSSRH Parent</name>
     <description>Maven Central Parent</description>
     <packaging>pom</packaging>
@@ -63,6 +63,14 @@
         <system>travis</system>
         <url>https://travis-ci.com/${repository.slug}</url>
     </ciManagement>
+
+    <developers>
+        <developer>
+            <id>ruffkat</id>
+            <name>Jeff Glatz</name>
+            <email>jeff@bestquality.engineering</email>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>

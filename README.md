@@ -9,6 +9,6 @@ Project description
 <dependency>
   <groupId>io.bestquality</groupId>
   <artifactId>ossrh-parent</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.0</version>
 </dependency>
 ```
