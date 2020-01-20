@@ -4,10 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.bestquality</groupId>
-    <artifactId>ossrh-template</artifactId>
+    <artifactId>ossrh-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>OSSRH Template</name>
-    <description>Maven Central Template Project</description>
+    <name>OSSRH Parent</name>
+    <description>Maven Central Parent</description>
+    <packaging>pom</packaging>
 
     <properties>
         <!-- Dependency Versions -->
@@ -34,8 +35,8 @@
         <skipTests>false</skipTests>
         <skipITests>${skipTests}</skipITests>
         <!-- Customized Properties -->
-        <project.staging.profile>OSSRH Staging Profile Identifier</project.staging.profile>
-        <repository.slug>owner-name/repository-name</repository.slug>
+        <project.staging.profile>20cdf4093a44de</project.staging.profile>
+        <repository.slug>ruffkat/ossrh-parent</repository.slug>
     </properties>
 
     <url>https://github.com/${repository.slug}</url>
