@@ -12,7 +12,7 @@
     <properties>
         <!-- Dependency Versions -->
         <assertj.version>3.13.2</assertj.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <mockito.version>3.2.4</mockito.version>
         <!-- Plugin Versions -->
         <codehaus.versions.version>2.7</codehaus.versions.version>
