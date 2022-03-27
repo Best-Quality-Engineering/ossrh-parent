@@ -4,7 +4,7 @@
 
     <groupId>io.bestquality</groupId>
     <artifactId>ossrh-parent</artifactId>
-    <version>0.0.6</version>
+    <version>0.0.7-SNAPSHOT</version>
     <name>OSSRH Parent</name>
     <description>Maven Central Parent</description>
     <packaging>pom</packaging>
@@ -52,7 +52,7 @@
         <connection>scm:git:git://github.com/${repository.slug}.git</connection>
         <developerConnection>scm:git:git@github.com:${repository.slug}.git</developerConnection>
         <url>https://github.com/${repository.slug}</url>
-        <tag>0.0.6</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
