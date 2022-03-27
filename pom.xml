@@ -34,8 +34,8 @@
         <skipTests>false</skipTests>
         <skipITests>${skipTests}</skipITests>
         <!-- Customized Properties -->
-        <project.staging.profile>20cdf4093a44de</project.staging.profile>
-        <project.ossrh.hostname>oss.sonatype.org</project.ossrh.hostname>
+        <ossrh.hostname>oss.sonatype.org</ossrh.hostname>
+        <ossrh.staging-profile>20cdf4093a44de</ossrh.staging-profile>
         <repository.slug>ruffkat/ossrh-parent</repository.slug>
     </properties>
 
@@ -324,11 +324,11 @@
             <distributionManagement>
                 <snapshotRepository>
                     <id>ossrh</id>
-                    <url>https://${project.ossrh.hostname}/content/repositories/snapshots</url>
+                    <url>https://${ossrh.hostname}/content/repositories/snapshots</url>
                 </snapshotRepository>
                 <repository>
                     <id>ossrh</id>
-                    <url>https://${project.ossrh.hostname}/service/local/staging/deploy/maven2</url>
+                    <url>https://${ossrh.hostname}/service/local/staging/deploy/maven2</url>
                 </repository>
             </distributionManagement>
             <build>
@@ -372,8 +372,8 @@
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
-                            <nexusUrl>https://${project.ossrh.hostname}</nexusUrl>
-                            <stagingProfileId>${project.staging.profile}</stagingProfileId>
+                            <nexusUrl>https://${ossrh.hostname}</nexusUrl>
+                            <stagingProfileId>${ossrh.staging-profile}</stagingProfileId>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                             <autoDropAfterRelease>true</autoDropAfterRelease>
                             <detectBuildFailures>true</detectBuildFailures>
