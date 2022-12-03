@@ -7,4 +7,7 @@ release.properties
 pom.xml.releaseBackup
 deploy/id_rsa*
 deploy/settings-security.xml
+.github/scripts/id_rsa*
+.github/scripts/settings-security.xml
+.github/scripts/ossrh.xml
 .DS_Store
