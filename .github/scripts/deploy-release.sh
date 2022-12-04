@@ -21,7 +21,7 @@ done
 
 echo "Releasing ${RELEASE_VERSION}"
 echo "Executing deploy goal for ${RELEASE_VERSION}"
-if ! mvn -e -B -ntp -P ossrh -P ci clean deploy -Drevision="${RELEASE_VERSION}" -Dchangelist=""; then
+if ! mvn -e -B -ntp -P ossrh clean tools.bestquality:ci-maven-plugin:expand-pom deploy -Drevision="${RELEASE_VERSION}" -Dchangelist=""; then
   echo "Failure deploying release artifacts, aborting"
   exit 1
 fi
@@ -34,10 +34,10 @@ echo "Creating release branch: ${RELEASE_BRANCH}"
 git checkout -b "${RELEASE_BRANCH}"
 
 echo "Incrementing project revision"
-mvn -e -B -ntp -P ci ci:increment-pom -Drevision="${RELEASE_VERSION}"
+mvn -e -B -ntp tools.bestquality:ci-maven-plugin:increment-pom -Drevision="${RELEASE_VERSION}"
 
 echo "Updating version references in project files"
-mvn -e -B -ntp -P ci ci:replace-content -Drevision="${RELEASE_VERSION}" -Dchangelist=""
+mvn -e -B -ntp tools.bestquality:ci-maven-plugin:replace-content -Drevision="${RELEASE_VERSION}" -Dchangelist=""
 
 echo "Pushing ${RELEASE_BRANCH}"
 git add -u .
