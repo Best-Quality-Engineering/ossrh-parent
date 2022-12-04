@@ -1,0 +1,19 @@
+name: OSSRH Release
+on:
+  release:
+    types: [released]
+jobs:
+  deploy-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy Release Artifacts
+        uses: ./.github/actions/deploy-ossrh-release
+        with:
+          code-signing-private-key: ${{secrets.CODE_SIGNING_KEY}}
+          code-signing-private-key-fingerprint: ${{secrets.CODE_SIGNING_KEY_FINGERPRINT}}
+          code-signing-private-key-passphrase: ${{secrets.CODE_SIGNING_KEY_PASSPHRASE}}
+          ossrh-username: ${{secrets.OSSRH_USERNAME}}
+          ossrh-password: ${{secrets.OSSRH_PASSWORD}}
+          version: ${{github.ref_name}}
+

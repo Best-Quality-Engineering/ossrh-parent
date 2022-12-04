@@ -1,0 +1,54 @@
+name: Deploy OSSRH Release
+description: Deploys OSSRH Release Artifacts
+inputs:
+  java-version:
+    description: Java version
+    required: false
+    default: "11"
+  java-distribution:
+    description: Java distribution
+    required: false
+    default: zulu
+  ossrh-username:
+    description: OSSRH username
+    required: true
+  ossrh-password:
+    description: OSSRH password
+    required: true
+  code-signing-private-key:
+    description: Code signing GPG private key
+    required: true
+  code-signing-private-key-fingerprint:
+    description: Code signing GPG private key fingerprint
+    required: true
+  code-signing-private-key-passphrase:
+    description: Code signing GPG private key passphrase
+    required: true
+  version:
+    description: Artifact release version
+    required: true
+  default-branch-name:
+    description: Name of the default branch for the project
+    required: false
+    default: "master"
+  delete-release-branch:
+    description: Controls release branch deletion after merge to default branch
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - name: Setup Runtime Environment
+      uses: ./.github/actions/setup-runtime-environment
+      with:
+        java-version: ${{inputs.java-version}}
+        java-distribution: ${{inputs.java-distribution}}
+        code-signing-private-key: ${{inputs.code-signing-private-key}}
+    - name: Deploy Release Artifacts
+      env:
+        CODE_SIGNING_KEY_FINGERPRINT: ${{inputs.code-signing-private-key-fingerprint}}
+        CODE_SIGNING_KEY_PASSPHRASE: ${{inputs.code-signing-private-key-passphrase}}
+        OSSRH_USERNAME: ${{inputs.ossrh-username}}
+        OSSRH_PASSWORD: ${{inputs.ossrh-password}}
+      shell: bash
+      run: .github/scripts/deploy-release.sh -v ${{inputs.version}} -b ${{inputs.default-branch-name}} -d ${{inputs.delete-release-branch}}
