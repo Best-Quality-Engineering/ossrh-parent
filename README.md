@@ -11,17 +11,17 @@ An OSSRH parent POM file for deployment to Maven Central.
 <parent>
   <groupId>tools.bestquality</groupId>
   <artifactId>ossrh-parent</artifactId>
-  <version>0.0.7</version>
+  <version>0.0.8</version>
 </parent>
 ```
 ## Environment Variables
 The following environment variables are expected to be available when deploying snapshot and release artifacts to
 OSSRH:
 
-| Name                           | Type     | Description                                                       |
-|--------------------------------|----------|-------------------------------------------------------------------|
-| `CODE_SIGNING_KEY_FINGERPRINT` | `string` | The finger print of the GPG public key used to sign the artifacts |
-| `CODE_SIGNING_KEY_PASSPHRASE`  | `string` | The passphrase associated with the code signing key               |
+| Name                           | Type     | Description                                                      |
+|--------------------------------|----------|------------------------------------------------------------------|
+| `CODE_SIGNING_KEY_FINGERPRINT` | `string` | The fingerprint of the GPG public key used to sign the artifacts |
+| `CODE_SIGNING_KEY_PASSPHRASE`  | `string` | The passphrase associated with the code signing key              |
 
 ## OSSRH Deployment Properties
 The following project properties should be overridden from an inheriting POM file in order to deploy snapshot and 
@@ -30,7 +30,7 @@ release artifacts to OSSRH:
 | Name                    | Type     | Description                                                                              |
 |-------------------------|----------|------------------------------------------------------------------------------------------|
 | `ossrh.hostname`        | `string` | The hostname of your assigned Nexus Repository Manager instance, i.e. `oss.sonatype.org` |
-| `ossrh.staging-profile` | `string` | The identifier of staging profile associated with your `Group` coordinate                |
+| `ossrh.staging-profile` | `string` | The identifier of staging profile associated with your `group` coordinate                |
 
 ## Project Properties
 The following project properties should be overridden from an inheriting POM file:
