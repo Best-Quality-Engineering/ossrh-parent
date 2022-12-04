@@ -1,2 +1,5 @@
 #!/bin/bash -e
-CI_MAVEN_PLUGIN=tools.bestquality:ci-maven-plugin:0.0.19
+CI_MAVEN_PLUGIN_VERSION="${CI_MAVEN_PLUGIN_VERSION:-0.0.19}"
+CI_MAVEN_PLUGIN="tools.bestquality:ci-maven-plugin:${CI_MAVEN_PLUGIN_VERSION}"
+CI_MAVEN_PROFILES=""
+

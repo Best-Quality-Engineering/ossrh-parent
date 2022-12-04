@@ -1,0 +1,22 @@
+name: Build OSSRH Branch
+description: Deploys OSSRH Release Artifacts
+inputs:
+  java-version:
+    description: Java version
+    required: false
+    default: "11"
+  java-distribution:
+    description: Java distribution
+    required: false
+    default: zulu
+runs:
+  using: composite
+  steps:
+    - name: Setup Runtime Environment
+      uses: ./actions/setup-runtime
+      with:
+        java-version: ${{inputs.java-version}}
+        java-distribution: ${{inputs.java-distribution}}
+    - name: Deploy Snapshot Artifacts
+      shell: bash
+      run: scripts/build-branch.sh
