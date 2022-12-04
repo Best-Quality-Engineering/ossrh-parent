@@ -4,7 +4,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 while getopts ":v:m:d:" option; do
   case ${option} in
   v)
-    RELEASE_VERSION="${OPTARG}"
+    RELEASE_VERSION="${OPTARG#v}"
     RELEASE_BRANCH="release/${RELEASE_VERSION}"
     ;;
   m)

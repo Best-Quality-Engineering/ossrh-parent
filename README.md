@@ -11,7 +11,7 @@ An OSSRH parent POM file for deployment to Maven Central.
 <parent>
   <groupId>tools.bestquality</groupId>
   <artifactId>ossrh-parent</artifactId>
-  <version>0.0.8</version>
+  <version>0.0.9</version>
 </parent>
 ```
 ## Environment Variables
