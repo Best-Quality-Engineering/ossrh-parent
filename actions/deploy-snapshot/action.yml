@@ -1,5 +1,5 @@
-name: Deploy OSSRH Release
-description: Deploys OSSRH Release Artifacts
+name: Deploy OSSRH Snapshot
+description: Deploys OSSRH Snapshot Artifacts
 inputs:
   java-version:
     description: Java version
@@ -24,31 +24,20 @@ inputs:
   code-signing-private-key-passphrase:
     description: Code signing GPG private key passphrase
     required: true
-  version:
-    description: Artifact release version
-    required: true
-  default-branch-name:
-    description: Name of the default branch for the project
-    required: false
-    default: "master"
-  delete-release-branch:
-    description: Controls release branch deletion after merge to default branch
-    required: false
-    default: "true"
 runs:
   using: composite
   steps:
     - name: Setup Runtime Environment
-      uses: ./.github/actions/setup-runtime-environment
+      uses: ./actions/setup-runtime
       with:
         java-version: ${{inputs.java-version}}
         java-distribution: ${{inputs.java-distribution}}
         code-signing-private-key: ${{inputs.code-signing-private-key}}
-    - name: Deploy Release Artifacts
+    - name: Deploy Snapshot Artifacts
       env:
         CODE_SIGNING_KEY_FINGERPRINT: ${{inputs.code-signing-private-key-fingerprint}}
         CODE_SIGNING_KEY_PASSPHRASE: ${{inputs.code-signing-private-key-passphrase}}
         OSSRH_USERNAME: ${{inputs.ossrh-username}}
         OSSRH_PASSWORD: ${{inputs.ossrh-password}}
       shell: bash
-      run: .github/scripts/deploy-release.sh -v ${{inputs.version}} -b ${{inputs.default-branch-name}} -d ${{inputs.delete-release-branch}}
+      run: scripts/deploy-snapshot.sh

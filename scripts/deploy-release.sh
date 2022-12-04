@@ -1,14 +1,14 @@
 #!/bin/bash -e
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
-while getopts ":v:b:d:" option; do
+while getopts ":v:m:d:" option; do
   case ${option} in
   v)
     RELEASE_VERSION="${OPTARG}"
     RELEASE_BRANCH="release/${RELEASE_VERSION}"
     ;;
-  b)
-    DEFAULT_BRANCH_NAME="${OPTARG}"
+  m)
+    MAIN_BRANCH_NAME="${OPTARG}"
     ;;
   d)
     DELETE_RELEASE_BRANCH="${OPTARG}"
@@ -45,11 +45,11 @@ git add -u .
 git commit -m "Release ${RELEASE_VERSION} (build: ${GITHUB_RUN_ID})"
 git push -u origin "${RELEASE_BRANCH}"
 
-echo "Merging ${RELEASE_BRANCH} to ${DEFAULT_BRANCH_NAME}"
+echo "Merging ${RELEASE_BRANCH} to ${MAIN_BRANCH_NAME}"
 git fetch
-git checkout "${DEFAULT_BRANCH_NAME}"
+git checkout "${MAIN_BRANCH_NAME}"
 git merge "${RELEASE_BRANCH}"
-git push -u origin "${DEFAULT_BRANCH_NAME}"
+git push -u origin "${MAIN_BRANCH_NAME}"
 
 if [[ "${DELETE_RELEASE_BRANCH}" == "true" ]]; then
   echo "Deleting ${RELEASE_BRANCH}"

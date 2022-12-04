@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Deploy Release Artifacts
-        uses: ./.github/actions/deploy-ossrh-release
+        uses: ./actions/deploy-release
         with:
           code-signing-private-key: ${{secrets.CODE_SIGNING_KEY}}
           code-signing-private-key-fingerprint: ${{secrets.CODE_SIGNING_KEY_FINGERPRINT}}
