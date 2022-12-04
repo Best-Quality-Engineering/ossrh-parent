@@ -19,7 +19,7 @@ inputs:
     default: OSSRH_PASSWORD
   code-signing-private-key:
     description: Code signing GPG private key
-    required: true
+    required: false
   code-signing-private-key-passphrase-env-variable:
     description: Name of the environment variable containing code signing GPG private key passphrase
     required: false
@@ -27,7 +27,15 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Set up basic runtime environment
+      if: ${{!inputs.code-signing-private-key}}
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{inputs.java-version}}
+        distribution: ${{inputs.java-distribution}}
+        cache: maven
     - name: Set up OSSRH deployment environment
+      if: ${{inputs.code-signing-private-key}}
       uses: actions/setup-java@v3
       with:
         java-version: ${{inputs.java-version}}
