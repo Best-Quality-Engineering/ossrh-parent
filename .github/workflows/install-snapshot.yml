@@ -11,4 +11,4 @@ on:
       - fix/**
 jobs:
   build:
-    uses: Best-Quality-Engineering/ci-maven-actions/.github/workflows/install-snapshot.yml@main
+    uses: Best-Quality-Engineering/ci-maven-workflows/.github/workflows/install-snapshot.yml@main

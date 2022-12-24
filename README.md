@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/branch-build.yml/badge.svg)](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/branch-build.yml)
+[![Install Status](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/install-snapshot.yml/badge.svg)](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/install-snapshot.yml)
 [![Snapshot Status](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/ossrh-snapshot.yml/badge.svg)](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/ossrh-snapshot.yml)
 [![Release Status](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/ossrh-release.yml/badge.svg)](https://github.com/Best-Quality-Engineering/ossrh-parent/actions/workflows/ossrh-release.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/tools.bestquality/ossrh-parent.svg?color=green&label=maven%20central)](https://search.maven.org/search?q=g:tools.bestquality%20AND%20a:ossrh-parent)
