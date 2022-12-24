@@ -42,6 +42,7 @@ The following project properties should be overridden from an inheriting POM fil
 repository.slug
 
 ## Maven Profiles
+
 ### `ossrh`
 Activating the `ossrh` profile will skip the built-in `maven-deploy-plugin` plugin and engage the `maven-gpg-plugin` to
 sign the project artifacts and the `nexus-staging-maven-plugin` to deploy the artifacts to OSSRH.
