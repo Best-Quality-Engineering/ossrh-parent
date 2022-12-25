@@ -274,6 +274,17 @@
             <plugin>
                 <groupId>tools.bestquality</groupId>
                 <artifactId>ci-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <documents>
+                        <document>
+                            <location>${project.basedir}/README.md</location>
+                            <encoding>utf-8</encoding>
+                            <pattern><![CDATA[(?sm)(<version>).*?(<\/version>)]]></pattern>
+                            <replacement><![CDATA[$1${project.version}$2]]></replacement>
+                        </document>
+                    </documents>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

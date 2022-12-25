@@ -4,7 +4,7 @@ on:
     branches:
       - "master"
 jobs:
-  build:
+  deploy-ossrh-snapshot:
     uses: Best-Quality-Engineering/ci-maven-workflows/.github/workflows/deploy-snapshot.yml@main
     secrets:
       code-signing-private-key: ${{secrets.CODE_SIGNING_KEY}}

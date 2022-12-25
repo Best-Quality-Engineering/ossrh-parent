@@ -3,7 +3,7 @@ on:
   release:
     types: [ released ]
 jobs:
-  build:
+  deploy-ossrh-release:
     uses: Best-Quality-Engineering/ci-maven-workflows/.github/workflows/deploy-release.yml@main
     secrets:
       code-signing-private-key: ${{secrets.CODE_SIGNING_KEY}}

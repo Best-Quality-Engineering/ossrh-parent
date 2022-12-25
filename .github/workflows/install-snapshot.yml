@@ -10,6 +10,6 @@ on:
       - feature/**
       - fix/**
 jobs:
-  build:
+  install-snapshot:
     uses: Best-Quality-Engineering/ci-maven-workflows/.github/workflows/install-snapshot.yml@main
 
