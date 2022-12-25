@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tools.bestquality</groupId>
@@ -12,6 +13,7 @@
     <properties>
         <!-- Plugin Versions -->
         <codehaus.versions.version>2.7</codehaus.versions.version>
+        <maven.ci.version>0.0.19</maven.ci.version>
         <maven.deploy.version>2.8.2</maven.deploy.version>
         <maven.gpg.version>1.6</maven.gpg.version>
         <maven.failsafe.version>2.22.2</maven.failsafe.version>
@@ -86,6 +88,18 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>tools.bestquality</groupId>
+                    <artifactId>ci-maven-plugin</artifactId>
+                    <version>${maven.ci.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>expand-pom</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -257,6 +271,10 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>tools.bestquality</groupId>
+                <artifactId>ci-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
