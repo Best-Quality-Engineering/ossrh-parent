@@ -283,6 +283,12 @@
                             <pattern><![CDATA[(?sm)(<version>).*?(<\/version>)]]></pattern>
                             <replacement><![CDATA[$1${project.version}$2]]></replacement>
                         </document>
+                        <document>
+                            <location>${project.basedir}/docs/_config.yml</location>
+                            <encoding>utf-8</encoding>
+                            <pattern><![CDATA[(version:).*]]></pattern>
+                            <replacement><![CDATA[$1 ${project.version}]]></replacement>
+                        </document>
                     </documents>
                 </configuration>
             </plugin>
