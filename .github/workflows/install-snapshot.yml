@@ -12,6 +12,4 @@ on:
 jobs:
   build:
     uses: Best-Quality-Engineering/ci-maven-workflows/.github/workflows/install-snapshot.yml@main
-    with:
-      profiles: ci
 

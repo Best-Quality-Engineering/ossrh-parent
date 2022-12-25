@@ -1,11 +1,10 @@
-name: Deploy OSSRH Snapshot
+name: Deploy OSSRH Release
 on:
-  push:
-    branches:
-      - "master"
+  release:
+    types: [ released ]
 jobs:
   build:
-    uses: Best-Quality-Engineering/ci-maven-workflows/.github/workflows/deploy-snapshot.yml@main
+    uses: Best-Quality-Engineering/ci-maven-workflows/.github/workflows/deploy-release.yml@main
     secrets:
       code-signing-private-key: ${{secrets.CODE_SIGNING_KEY}}
       code-signing-private-key-passphrase: ${{secrets.CODE_SIGNING_KEY_PASSPHRASE}}
@@ -15,3 +14,5 @@ jobs:
     with:
       profiles: ossrh
       deployment-server-id: ossrh
+      version: ${{github.ref_name}}
+      base-branch: master
