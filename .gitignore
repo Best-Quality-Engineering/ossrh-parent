@@ -3,7 +3,5 @@ target/
 *.iml
 *.asc
 *.gpg*
-release.properties
-pom.xml.releaseBackup
 deploy/
 .DS_Store
