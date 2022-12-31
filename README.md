@@ -46,3 +46,8 @@ repository.slug
 ### `ossrh`
 Activating the `ossrh` profile will skip the built-in `maven-deploy-plugin` plugin and engage the `maven-gpg-plugin` to
 sign the project artifacts and the `nexus-staging-maven-plugin` to deploy the artifacts to OSSRH.
+
+## CI/CD
+This parent works seamlessly with the CI Maven 
+[Actions](https://github.com/Best-Quality-Engineering/ci-maven-actions) and 
+[Workflows](https://github.com/Best-Quality-Engineering/ci-maven-workflows)
